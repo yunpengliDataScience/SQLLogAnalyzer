@@ -1,0 +1,4 @@
+2023-07-12 10:23:35 DEBUG [org.hibernate.SQL] - select c.id, c.name, a.address from customers c inner join addresses a on c.id = a.customer_id where c.id = 1
+2023-07-12 10:23:38 DEBUG [org.hibernate.SQL] - insert into orders (customer_id, product_id, quantity) values (1, 2, 10)
+2023-07-12 10:23:42 DEBUG [org.hibernate.SQL] - update customers set name = 'John' where id = 1
+2023-07-12 10:23:45 DEBUG [org.hibernate.SQL] - delete from orders where id = 10
