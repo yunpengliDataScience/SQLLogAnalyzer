@@ -59,7 +59,9 @@ public class SQLTableExtractor {
             String tables = matcher.group(1);
             String[] tableArray = tables.split("\\s*,\\s*");
             for (String table : tableArray) {
-                tableNames.add(table);
+                if(!"Dual".equalsIgnoreCase(table)) {
+                	tableNames.add(table);
+                }
             }
         }
 

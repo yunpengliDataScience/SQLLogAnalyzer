@@ -18,11 +18,11 @@ public class SQLLogParser {
 			logFilePath = args[0];
 		}
 
-		List<String> tableNames = extractTableNamesFromLog(logFilePath);
+		List<List<String>> tableNameList = extractTableNamesFromLog(logFilePath);
 
 		System.out.println("Table Names:");
-		for (String tableName : tableNames) {
-			System.out.println(tableName);
+		for (List<String> entry : tableNameList) {
+			System.out.println(entry);
 		}
 	}
 
@@ -38,19 +38,19 @@ public class SQLLogParser {
 		return null;
 	}
 
-	public static List<String> extractTableNamesFromLog(String logFilePath) {
-		List<String> tableNames = new ArrayList<>();
+	public static List<List<String>> extractTableNamesFromLog(String logFilePath) {
+		List<List<String>> tableNameList = new ArrayList<>();
 
 		try (BufferedReader br = new BufferedReader(new FileReader(logFilePath))) {
 			String line;
 			while ((line = br.readLine()) != null) {
 				List<String> tbNames = SQLTableExtractor.extractTableNames(line);
-				tableNames.addAll(tbNames);
+				tableNameList.add(tbNames);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		return tableNames;
+		return tableNameList;
 	}
 }
