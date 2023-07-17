@@ -5,3 +5,7 @@ mvn clean package -DskipTests
 
 To Run:
 java -jar SQLLogAnalyzer.jar C:\Projects\SQLLogAnalyzer\src\main\resources\sql.log
+
+------------------------------------------------------------------------------------
+JSqlParser:
+https://jsqlparser.github.io/JSqlParser/index.html
